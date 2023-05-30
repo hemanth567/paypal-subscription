@@ -1,0 +1,17 @@
+<div class="payment-cards">
+    <div class="payment-card" *ngFor="let plan of paymentPlans">
+        <div class="card-header">
+            <h3>{{ plan.type }}</h3>
+            <h4>{{ plan.price }}</h4>
+        </div>
+        <div class="card-body">
+
+        </div>
+        <div class="card-footer">
+            <!-- <div id="paypal-button-container" style="display: block;"></div> -->
+            <div #paypalButton class="buy-button" (click)="buyNow(paypalButton, plan)">Buy Now</div>
+            <!-- <button (click)="initiatePayPalPayment(plan)" class="buy-button">Buy Now</button> -->
+
+        </div>
+    </div>
+</div>
