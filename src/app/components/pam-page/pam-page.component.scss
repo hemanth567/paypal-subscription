@@ -1,14 +1,11 @@
 .payment-cards {
     display: flex;
     justify-content: center;
-    /* Horizontally center the cards */
     align-items: center;
-    /* Vertically center the cards */
     flex-wrap: wrap;
     .payment-card {
         width: 300px;
-        height: 500px;
-        /* Set the height of each card */
+        height: 300px;
         background-color: #f1f1f1;
         border-radius: 5px;
         padding: 20px;
@@ -36,9 +33,8 @@
         .card-footer {
             text-align: center;
             margin-top: auto;
-            /* Push the footer to the bottom */
-            .buy-button {
-                background-color: #4CAF50;
+            .card-button {
+                background-color: #4caf50;
                 color: white;
                 border: none;
                 padding: 10px 20px;
@@ -48,7 +44,53 @@
                 font-size: 16px;
                 cursor: pointer;
                 border-radius: 4px;
+                &.selected {
+                    background-color: #888;
+                    cursor: default;
+                }
             }
         }
+    }
+}
+
+.cart-summary {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    h2 {
+        margin-top: 0;
+    }
+    .cart-items {
+        margin-top: 10px;
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            p {
+                margin: 0;
+            }
+        }
+    }
+    .cart-total {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        h3 {
+            margin-right: 10px;
+        }
+    }
+    .cart-button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-top: 10px;
     }
 }

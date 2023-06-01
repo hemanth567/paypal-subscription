@@ -5,13 +5,26 @@
             <h4>{{ plan.price }}</h4>
         </div>
         <div class="card-body">
-
         </div>
         <div class="card-footer">
-            <!-- <div id="paypal-button-container" style="display: block;"></div> -->
-            <div #paypalButton class="buy-button" (click)="buyNow(paypalButton, plan)">Buy Now</div>
-            <!-- <button (click)="initiatePayPalPayment(plan)" class="buy-button">Buy Now</button> -->
+            <div class="card-button" [class.selected]="isProductSelected(plan)" (click)="toggleProductSelection(plan)">
+                {{ isProductSelected(plan) ? 'Selected' : 'Select' }}
+            </div>
         </div>
     </div>
+</div>
 
+<div class="cart-summary">
+    <h2>Cart Summary</h2>
+    <div class="cart-items">
+        <div class="cart-item" *ngFor="let item of cartItems">
+            <p>{{ item.type }}</p>
+            <p>{{ item.price }}</p>
+        </div>
+    </div>
+    <div class="cart-total">
+        <h3>Total:</h3>
+        <p>{{ calculateTotal() }}</p>
+    </div>
+    <div *ngIf="cartItems.length > 0" #paypalButton class="cart-button" (click)="buyNow(paypalButton)">Buy Now</div>
 </div>
