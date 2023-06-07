@@ -2,15 +2,15 @@
     <div class="product-cards">
         <div class="product-card" *ngFor="let product of products">
             <div class="card-header">
-                <h3>{{ product.type }}</h3>
+                <h3>{{ product.name }}</h3>
                 <h4>{{ product.price }}</h4>
             </div>
             <div class="card-body">
             </div>
             <div class="card-footer">
-                <div class="card-button" [class.selected]="product.selected" (click)="toggleProductSelection(product)">{{ product.selected ? 'Selected' : 'Select' }}</div>
+                <div class="card-button" [class.selected]="product.quantity" (click)="toggleProductSelection(product)">{{ product.quantity ? 'Selected' : 'Select' }}</div>
             </div>
         </div>
     </div>
-    <app-cart [cartItems]="cartItems" [payPalConfig]="payPalConfig" (onApproveCallback)="approveCallback($event)" (onCancelCallback)="cancelCallback($event)" (onErrorCallback)="errorCallback($event)"></app-cart>
+    <app-summary [cartItems]="cartItems" [payPalConfig]="payPalConfig" (onSuccessCallback)="onSuccessCallback($event)" (onCancelCallback)="cancelCallback($event)" (onErrorCallback)="errorCallback($event)"></app-summary>
 </section>

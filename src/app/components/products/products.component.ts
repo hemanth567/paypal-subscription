@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
 interface Product {
-  type: string;
+  name: string;
+  id: string;
   price: number;
-  selected: boolean;
+  quantity: number;
+  discountedPrice?:number
 }
 
 @Component({
@@ -14,9 +16,9 @@ interface Product {
 export class ProductsComponent {
 
   products: Product[] = [
-    { type: 'Product  1', price: 9.99, selected: false },
-    { type: 'Product  2', price: 14.99, selected: false },
-    { type: 'Product 3', price: 19.99, selected: false }
+    { id:"123a", name: 'Product  1', price: 9.99, quantity: 0 },
+    { id:"456b", name: 'Product  2', price: 14.99, quantity: 0 },
+    { id:"789b", name: 'Product 3', price: 19.99, quantity: 0 }
   ];
   cartItems: Product[] = [];
   payPalConfig: any;
@@ -41,11 +43,11 @@ export class ProductsComponent {
   }
 
   toggleProductSelection(product: Product) {
-    product.selected = !product.selected;
-    if (product.selected) {
+    product.quantity = product.quantity == 1 ? 0 : 1;
+    if (product.quantity) {
       this.cartItems.push(product);
     } else {
-      const index = this.cartItems.findIndex(item => item.type === product.type);
+      const index = this.cartItems.findIndex(item => item.name === product.name);
       if (index !== -1) {
         this.cartItems.splice(index, 1);
       }
@@ -53,7 +55,7 @@ export class ProductsComponent {
     this.cartItems = [...this.cartItems];
   }
 
-  approveCallback(data){
+  onSuccessCallback(data){
 
   }
 

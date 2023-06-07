@@ -1,0 +1,26 @@
+<div class="cart-container">
+    <div class="summary-container">
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="cart-products">
+                <div class="cart-product" *ngFor="let product of cartItems">
+                    <b>{{ product.name }}</b>
+                    <p>Price: {{ product.price }}</p>
+                    <p *ngIf="product.discountedPrice">Discounted Price: {{ product.discountedPrice }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="cart-total">
+            <div class="promo-container">
+                <input type="text" placeholder="Enter promo code" class="promo-input" [(ngModel)]="promoCode">
+                <button class="apply-button" (click)="applyPromoCode()">Apply</button>
+            </div>
+            <h3>Total:</h3>
+            <p>{{ cartTotal }}</p>
+        </div>
+    </div>
+
+    <div class="paypal-container" [hidden]="cartItems.length == 0">
+        <div #payPalRef></div>
+    </div>
+</div>

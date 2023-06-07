@@ -1,0 +1,55 @@
+.cart-container {
+    display: flex;
+}
+
+.summary-container {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.paypal-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.cart-products {
+    margin-bottom: 10px;
+}
+
+.cart-product p {
+    margin: 5px 0;
+}
+
+.cart-total {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.paypal-button,
+.apply-button {
+    background-color: #009cde;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.paypal-button:hover,
+.apply-button:hover {
+    background-color: #0081b3;
+}
+
+.promo-container {
+    margin-top: 20px;
+}
+
+.promo-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
